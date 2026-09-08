@@ -2,7 +2,7 @@
 
 ### [Astraloom｜把复杂处境整理成可以复盘的情景模拟](https://github.com/cheng-Lokesh/Astraloom)
 
-这是我目前投入最多的项目。它会把一段复杂的现实经历整理成关键人物、关系和事件，再模拟不同的变化方向。它不负责“预测命运”，而是希望帮助人看见自己忽略的线索，并知道每个结论是怎么来的。
+这个项目会把一段复杂的现实经历整理成关键人物、关系和事件，再模拟不同的变化方向。它不负责“预测命运”，而是希望帮助人看见自己忽略的线索，并知道每个结论是怎么来的。
 
 `Next.js` `TypeScript` `Supabase` `Multi-Agent` `Knowledge Graph` `Explainable AI`
 

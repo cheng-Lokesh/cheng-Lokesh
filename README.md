@@ -105,7 +105,7 @@ TradeSniper 面向二手商品检索中的重复浏览与信息干扰，将关�
 
 星夜伴侣围绕角色一致性、场景代入与连续对话体验，整合角色设定、历史记忆、语音合成和界面反馈。用户可在五个预设角色与多种场景之间切换，各角色独立维护会话，支持历史恢复、多会话管理及内容导出。
 
-![星夜伴侣多角色聊天界面](https://raw.githubusercontent.com/cheng-Lokesh/StarNight_Companion/main/docs/assets/starnight-overview.png)
+![星夜伴侣本地实机界面：风早翔与展开的角色栏](assets/starnight-kazehaya-local-20261012.jpg)
 
 ### 产品设计与实现
 

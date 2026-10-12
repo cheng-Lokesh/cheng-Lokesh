@@ -1,133 +1,108 @@
-# 项目作品集
+# 你好，我是 Lokesh Cheng
 
-这里汇总了四个已经做出可运行版本的项目。它们分别关注复杂决策、空窗期生活管理、信息筛选和多角色 AI 交互，覆盖产品设计、前后端开发、AI 工作流、数据安全与真实环境验证。
+### 把现实问题，做成可以操作、解释与验证的产品。
 
-## 快速了解
+这里记录我在个人现金状态、复杂情景模拟、信息筛选和 AI 角色交互上的产品实践。我关注从问题定义、交互设计到数据边界与运行验证的完整过程。
 
-| 项目 | 解决的问题 | 主要功能 | 工程关键词 |
-| --- | --- | --- | --- |
-| [**Astraloom**](https://github.com/cheng-Lokesh/Astraloom) | 普通 AI 难以解释复杂现实问题，结论缺少过程和依据 | 现实信息整理、关键人物、Agent、关系图谱、情景模拟、历史与反馈 | 多智能体、证据链、Supabase RLS、数据隔离 |
-| [**空窗期生存系统**](https://github.com/cheng-Lokesh/buffer) | 待业或转型阶段的现金、行动和变化信息彼此割裂 | 现金现状、未来轨迹、保留边界、条件管理、变化记录与情景对照 | 本地优先、确定性计算、响应式 Web、微信小程序 |
-| [**TradeSniper**](https://github.com/cheng-Lokesh/tradesniper) | 二手平台需要反复搜索，商家信息和无效结果干扰判断 | 关键词巡检、价格过滤、卖家识别、AI 辅助排序、桌面监控 | Playwright、规则与模型协同、Tkinter、会话管理 |
-| [**星夜伴侣**](https://github.com/cheng-Lokesh/StarNight_Companion) | 通用聊天缺少稳定人设、场景感和连续记忆 | 多角色对话、场景切换、独立记忆、语音、情绪反馈与导出 | 上下文编排、Zustand 持久化、TTS、响应式交互 |
+**近期重点：Buffer（缓冲区）** · 个人现实状态与未来模拟工具
+
+[Buffer](https://github.com/cheng-Lokesh/buffer) · [Astraloom](https://github.com/cheng-Lokesh/Astraloom) · [TradeSniper](https://github.com/cheng-Lokesh/tradesniper) · [星夜伴侣](https://github.com/cheng-Lokesh/StarNight_Companion)
 
 ---
 
-## 01 · Astraloom
+## Buffer · 缓冲区
 
-> 把复杂现实处境整理成可以检查、回溯和继续修正的多角色情景模拟。
+> 看清现在的现金现实，理解未来的变化，比较自己建立的假设。
+>
+> **缓冲区负责反映，不负责指导。**
+
+面向收入不稳定时期，Buffer 将现金状态、持续收支与已知事项放进同一条可解释的未来轨迹。产品围绕三个问题展开：**现在是什么状态？当前条件持续时会怎样？改变条件后会有什么不同？**
+
+### 四个空间，一条连续的观察路径
+
+| 现在 | 未来 | 条件 | 记录 |
+| --- | --- | --- | --- |
+| 当前余额、可支撑时间、预计触及保留边界 | 30 / 60 / 90 天现金轨迹与假设对照 | 现金基础、固定收支、未来一次事项 | 已确认变化、事项核对与预测快照 |
+
+### 最近的产品更新
+
+- **查找具体日期或余额**：从图表旁直接定位日期，或查找余额首次不高于指定金额的时间，让曲线上的信息更容易找到。
+- **组合试算**：叠加一次或周期收支、调整条件金额、按日期暂停条件，并保存或重新打开假设草稿。
+- **更轻的现实更新**：通过余额确认、到期事项核对和一句话输入整理变化；自然语言解析只生成候选，经过程序校验与本人确认后才写入现实。
+- **当前网站体验**：夜空全景、四空间布局与手机适配，让状态、轨迹和变化记录有清晰的阅读层次。
+- **双端共用规则**：网页版与微信小程序持续统一现金计算、日期/金额查询、现实确认与组合试算的核心逻辑。
+
+### 关键工程判断
+
+**事实与假设分开。** 已确认现实是唯一事实来源；预测由现实推导；模拟草稿不能修改真实数据。预计事项到期后仍须核对，未知金额也不会被当作零。
+
+**AI 的权力有边界。** 模型理解语言，代码校验，用户确认，代码写入。模型不能直接修改现金、条件或事项；复杂解析涉及外部服务时须明确披露。
+
+**跨端能力按证据交付。** 账号配对、持久化同步、离线队列和冲突保护已有开发进展，真实设备与线上全流程验收仍在推进。
+
+> **当前状态 · 2026-10：** 网站为受密码保护的试用阶段；公开服务、完整双端一致和自动同步的真实使用验收尚未完成。当前不提供公开访问入口，计划中的能力不等同于已上线能力。
+
+`JavaScript` `Node.js` `确定性现金引擎` `LLM 结构化解析` `微信小程序` `CloudBase / PostgreSQL` `EdgeOne`
+
+[查看项目 →](https://github.com/cheng-Lokesh/buffer) · [产品定义](https://github.com/cheng-Lokesh/buffer/blob/main/PRODUCT.md) · [最新实施状态](https://github.com/cheng-Lokesh/buffer/blob/main/docs/PUBLIC_SERVICE_IMPLEMENTATION_STATUS.md)
+
+---
+
+## Astraloom · 证据链驱动的多角色情景模拟
+
+> 把复杂现实处境整理成可以检查、回溯和继续修正的模拟过程。
 
 <a href="https://github.com/cheng-Lokesh/Astraloom">
-  <img src="https://raw.githubusercontent.com/cheng-Lokesh/Astraloom/main/docs/assets/astraloom-overview.png" alt="Astraloom 当前产品界面" width="100%">
+  <img src="https://raw.githubusercontent.com/cheng-Lokesh/Astraloom/main/docs/assets/astraloom-overview.png" alt="Astraloom 人物关系与情景模拟界面" width="100%">
 </a>
 
-### 主要功能
+从现实材料、关键人物与 Agent Profile，到关系图谱快照、事件序列和证据化结论，探索复杂处境中的不同变化路径。
 
-- 将用户提供的现实材料整理为目标、约束、事实和待确认信息。
-- 提取关键人物，为不同角色生成独立的 Agent Profile。
-- 用关系图谱表达人物之间的支持、压力、冲突和影响关系。
-- 锁定图谱快照后运行情景模拟，保留事件过程、结果和账户历史。
-- 支持对结果补充反馈，为后续观察和校准留下依据。
+- **可追溯结论**：重要结论关联具体模拟事件。
+- **稳定输入**：确认并锁定关系图谱快照，减少运行时输入漂移。
+- **数据边界**：通过账户隔离与安全规则，区分现实事实、模型推断和未知信息。
 
-### 专业性与工程重点
+`Next.js` `TypeScript` `Supabase` `Multi-Agent` `Knowledge Graph`
 
-- **结论可追溯**：重要结论关联具体事件，而不是只生成一篇看似合理的长文本。
-- **输入可复现**：模拟使用确认后的关系图谱快照，避免运行过程中输入悄悄变化。
-- **数据隔离**：通过 Supabase Auth、PostgreSQL 与 Row Level Security 保护账户数据。
-- **安全控制**：区分事实、推断与未知信息；高风险内容在生成前进入保守处理流程。
-
-`Next.js 16` `React 19` `TypeScript` `Supabase` `Multi-Agent` `Knowledge Graph` `Explainable AI`
-
-[查看完整项目说明 →](https://github.com/cheng-Lokesh/Astraloom)
+[查看项目 →](https://github.com/cheng-Lokesh/Astraloom)
 
 ---
 
-## 02 · 空窗期生存系统
+## TradeSniper · 二手商品智能筛选
 
-> 帮助待业、转型和项目空窗期的人看清现金现实，并把未来压力转化为可以处理的行动。
+> 减少重复搜索，把大量商品缩小为值得人工判断的候选列表。
 
-<a href="https://github.com/cheng-Lokesh/buffer">
-  <img src="https://raw.githubusercontent.com/cheng-Lokesh/buffer/main/docs/assets/buffer-overview.png" alt="空窗期生存系统现金未来界面" width="100%">
-</a>
+浏览器自动巡检先按关键词、价格与卖家规则过滤，再用 AI 分析描述并给出排序理由。桌面面板呈现日志、异常和候选结果，最终判断留给用户。
 
-### 主要功能
+**工程重点：** 规则与模型协同、浏览器会话管理、采集与分析模块分离、运行过程可观察。
 
-- 通过现金、保留边界和最低支出三个关键数字建立当前状态。
-- 计算可支撑天数，并展示 30、60、90 天现金变化轨迹。
-- 管理持续有效的现实条件，记录已经发生的收入、支出和状态变化。
-- 对不同支出或收入方案进行情景对照，但不会把模拟结果写回真实数据。
-- 提供本地备份、恢复、响应式 Web 与微信小程序实现。
+`Python` `Playwright` `Tkinter` `DeepSeek API`
 
-### 专业性与工程重点
-
-- **不编造数据**：不知道的金额保持“未确认”，不会自动当成零，也不会补全不存在的信息。
-- **现实与模拟分离**：真实记录、未来推演和临时情景使用不同的数据边界。
-- **本地优先**：基础数据默认保存在用户设备中，无需注册即可使用和恢复。
-- **跨端一致性**：Web 与微信小程序共享核心计算逻辑，并为服务端权益设置独立校验边界。
-
-`React 19` `Vite 7` `JavaScript` `Cloudflare Workers` `LocalStorage` `微信小程序` `Playwright`
-
-[查看完整项目说明 →](https://github.com/cheng-Lokesh/buffer)
+[查看项目 →](https://github.com/cheng-Lokesh/tradesniper)
 
 ---
 
-## 03 · TradeSniper
+## 星夜伴侣 · 多角色 AI 聊天
 
-> 用自动化和 AI 减少二手商品筛选中的重复浏览，把海量结果缩小为值得人工判断的候选列表。
-
-```mermaid
-flowchart LR
-    A[关键词与价格区间] --> B[浏览器自动巡检]
-    B --> C[规则过滤]
-    C --> D[AI 语义分析]
-    D --> E[候选排序与理由]
-    E --> F[用户人工判断]
-```
-
-### 主要功能
-
-- 根据关键词和价格区间自动巡检商品列表。
-- 维护浏览器登录会话，支持前台调试和后台无头运行。
-- 使用关键词、库存模式和价格异常等规则识别疑似职业卖家。
-- 调用 DeepSeek 对候选商品描述进行语义分析，并给出排序理由。
-- 在 Tkinter 桌面面板中显示运行日志、过滤过程和候选结果。
-
-### 专业性与工程重点
-
-- **规则先于模型**：先用稳定、低成本的规则缩小范围，再调用模型处理更需要语义判断的内容。
-- **人工保留最终决定**：AI 只负责辅助筛选，不自动下单、不代替验货，也不承诺交易收益。
-- **模块化结构**：采集、规则、模型分析、配置和界面相互分离，便于适配页面变化。
-- **可观察运行**：桌面界面持续显示当前任务、异常和候选结果，避免自动化成为黑盒。
-
-`Python` `Playwright` `Tkinter` `DeepSeek API` `Automation` `Threading`
-
-[查看完整项目说明 →](https://github.com/cheng-Lokesh/tradesniper)
-
----
-
-## 04 · 星夜伴侣
-
-> 一个支持多角色、场景、语音和本地记忆的 AI 角色聊天 Web 应用。
+> 探索稳定人设、场景上下文与连续记忆如何形成沉浸式交互。
 
 <a href="https://github.com/cheng-Lokesh/StarNight_Companion">
   <img src="https://raw.githubusercontent.com/cheng-Lokesh/StarNight_Companion/main/docs/assets/starnight-overview.png" alt="星夜伴侣多角色聊天界面" width="100%">
 </a>
 
-### 主要功能
+支持预设角色、场景切换、独立本地会话、语音合成和会话导出。角色设定、场景与历史共同进入每轮请求，各角色的会话状态分别维护。
 
-- 提供五个具有不同人设、语气和视觉形象的预设角色。
-- 支持日常、校园、浪漫、冒险、悬疑和奇幻等场景上下文。
-- 每个角色维护独立会话和本地记忆，切换角色时不会混用历史。
-- 集成 MiniMax 对话与语音合成，并提供轻量情绪反馈。
-- 支持多会话管理，以及 JSON、TXT、Markdown 格式导出。
+`Next.js` `React` `TypeScript` `Zustand` `MiniMax TTS`
 
-### 专业性与工程重点
+[查看项目 →](https://github.com/cheng-Lokesh/StarNight_Companion)
 
-- **上下文编排**：角色设定、当前场景和历史会话共同进入每轮请求，减少人设漂移。
-- **独立状态管理**：使用 Zustand 管理不同角色和会话，并在浏览器中持久化。
-- **前后端边界**：通过 Next.js Route Handlers 封装聊天、语音和健康检查接口。
-- **多端体验**：桌面与移动端共享同一套交互逻辑，并处理异步加载、错误和语音状态。
+---
 
-`Next.js 16` `React 19` `TypeScript` `Zustand` `Tailwind CSS` `Framer Motion` `MiniMax TTS`
+## 我的构建方式
 
-[查看完整项目说明 →](https://github.com/cheng-Lokesh/StarNight_Companion)
+- **先明确问题与边界**，再决定 AI 介入的环节。
+- **让中间过程可检查**，把模型输出放进结构化、可追溯的流程。
+- **同时考虑桌面与手机**，处理异常、数据恢复与后续维护。
+- **用实际运行验证结果**，清楚区分源码实现、自动化验证与真实上线。
+
+持续探索：AI 原生产品、可解释模拟、个人现实观察工具与可信的人机协作。
